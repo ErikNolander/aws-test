@@ -21,7 +21,7 @@ resource "aws_lambda_function" "division_lambda" {
   function_name = "division-serverless"
   role          = aws_iam_role.lambda_role.arn
   handler       = "handler.handler"
-  runtime       = "nodejs18.x"
+  runtime       = "python3.11"
 
   filename         = "${path.module}/function.zip"
   source_code_hash = filebase64sha256("${path.module}/function.zip")
