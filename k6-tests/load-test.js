@@ -15,7 +15,7 @@ export let options = {
 
 export default function () {
   http.post("https://e57vw5uw6iff57qq5emhykchwe0nawgh.lambda-url.eu-north-1.on.aws/", JSON.stringify({
-    limit: 10
+    limit: 7920
   }), {
     headers: { "Content-Type": "application/json" },
   });
