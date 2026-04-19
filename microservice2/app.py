@@ -23,7 +23,9 @@ def prime_count():
     start = time.time()
 
     body = request.get_json(silent=True) or {}
-    limit = int(body.get("limit", 7920))
+    if "limit" not in body:
+        return jsonify({"error": "Missing 'limit' in request body"}), 400
+    limit = int(body["limit"])
 
     result = heavy_compute(limit)
 
@@ -39,4 +41,4 @@ def prime_count():
 
 @app.get("/health")
 def health():
-    return jsonify({"ok": True}), 200
+    return jsonify({"status": "ok"}), 200
